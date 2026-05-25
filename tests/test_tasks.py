@@ -1,4 +1,3 @@
-"""Задание 1 — интеграционные тесты для /tasks."""
 import pytest
 from fastapi.testclient import TestClient
 

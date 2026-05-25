@@ -1,5 +1,3 @@
-"""Задание 2 — тест маршрута /health."""
-
 
 def test_health(client):
     r = client.get("/health")

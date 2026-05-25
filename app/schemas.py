@@ -3,7 +3,7 @@ from typing import Literal, Optional
 from pydantic import BaseModel, Field
 
 
-# ── Task schemas ──────────────────────────────────────────────────────────────
+
 
 TaskStatus = Literal["todo", "in_progress", "done"]
 
@@ -28,28 +28,28 @@ class TaskStatusUpdate(BaseModel):
     status: TaskStatus
 
 
-# ── User schemas ──────────────────────────────────────────────────────────────
+
 
 class UserOut(BaseModel):
     id: int
     role: str
 
 
-# ── Admin schemas ─────────────────────────────────────────────────────────────
+
 
 class AdminStats(BaseModel):
     total_tasks: int
     by_status: dict[str, int]
 
 
-# ── Health ────────────────────────────────────────────────────────────────────
+
 
 class HealthOut(BaseModel):
     status: str
     env: str
 
 
-# ── WebSocket schemas ─────────────────────────────────────────────────────────
+
 
 class WsMessage(BaseModel):
     type: Literal["message"]

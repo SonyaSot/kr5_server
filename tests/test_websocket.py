@@ -1,4 +1,3 @@
-"""Задание 3 — тесты WebSocket-чата."""
 from fastapi.testclient import TestClient
 
 

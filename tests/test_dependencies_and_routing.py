@@ -1,4 +1,3 @@
-"""Задание 4 — тесты зависимостей и маршрутизации."""
 
 USER_H = {"X-User-Id": "10", "X-User-Role": "user"}
 ADMIN_H = {"X-User-Id": "1", "X-User-Role": "admin"}

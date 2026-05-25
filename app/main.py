@@ -7,19 +7,18 @@ from app.ws_manager import room_manager
 
 app = FastAPI(title="FastAPI КР5")
 
-# ── Routers ───────────────────────────────────────────────────────────────────
 app.include_router(tasks.router)
 app.include_router(users.router)
 app.include_router(admin.router)
 
 
-# ── Health ────────────────────────────────────────────────────────────────────
+
 @app.get("/health", response_model=HealthOut, tags=["health"])
 def health() -> HealthOut:
     return HealthOut(status="ok", env=os.getenv("APP_ENV", "local"))
 
 
-# ── WebSocket chat rooms ──────────────────────────────────────────────────────
+
 @app.websocket("/ws/rooms/{room_id}")
 async def ws_room(
     websocket: WebSocket,
@@ -55,7 +54,7 @@ async def ws_room(
         await room_manager.disconnect(room_id, username)
 
 
-# ── Room info HTTP route ──────────────────────────────────────────────────────
+
 @app.get("/rooms/{room_id}/users", response_model=RoomUsersOut, tags=["rooms"])
 def room_users(room_id: str) -> RoomUsersOut:
     return RoomUsersOut(room_id=room_id, users=room_manager.get_users(room_id))
